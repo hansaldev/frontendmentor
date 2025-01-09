@@ -1,0 +1,57 @@
+footer {
+    background-color: black;
+    margin-top: 4rem;
+    text-align: center;
+    padding: 2.5rem;
+
+    h4 {
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: $white;
+        margin-bottom: 1.5rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    ul {
+        list-style: none;
+
+        a {
+            font-size: 1rem;
+            font-weight: 300;
+            margin-bottom: 3rem;
+        }
+    }
+
+    .social-icons {
+        ul {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 3rem;
+        }
+    }
+
+    .attribution {
+        font-size: 0.5rem;
+        margin: 2rem 0;
+    }
+}
+
+@media screen and (min-width:768px) {
+    footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 3rem;
+
+        ul {
+            display: flex;
+            gap: 1rem;
+            flex-direction: row;
+        }
+    }
+}

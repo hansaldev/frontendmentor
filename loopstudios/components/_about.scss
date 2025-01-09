@@ -1,0 +1,65 @@
+#about {
+    margin: 5rem 0;
+    text-align: center;
+
+    h2 {
+        font-family: $main-font;
+        font-size: 1.15rem;
+        text-transform: uppercase;
+        margin: 2rem 0;
+        color: black;
+
+    }
+
+    p {
+        font-weight: 300;
+
+    }
+}
+
+
+@media screen and (min-width:765px) {
+
+    #about {
+        .container {
+            position: relative;
+            height: 385px;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .about-text {
+            background: #fff;
+            width: 61%;
+            margin-left: 48%;
+            margin-top: 26px;
+            text-align: left;
+            position: absolute;
+            top: 135px;
+            right: 0;
+            padding: 2rem;
+        }
+
+        .about-image {
+            position: absolute;
+            width: 50%;
+            z-index: -1;
+        }
+    }
+
+}
+
+@media screen and (min-width:1024px) {
+
+    #about {
+        .container {
+            height: 480px;
+        }
+
+        .about-text {
+            top: 235px;
+        }
+    }
+
+}
