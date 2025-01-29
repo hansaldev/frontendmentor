@@ -1,0 +1,83 @@
+/* Reset The Browser */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Variables */
+:root {
+    --green: hsl(75, 94%, 57%);
+
+    --white: hsl(0, 0%, 100%);
+
+    --grey-700: hsl(0, 0%, 20%);
+    --grey-800: hsl(0, 0%, 12%);
+    --grey-900: hsl(0, 0%, 8%);
+}
+
+
+/* Body */
+body {
+    font: 14px;
+    line-height: 1.5;
+    font-family: "Inter", serif;
+    font-weight: 400;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100dvh;
+
+    background-color: var(--grey-900);
+    color: var(--white);
+}
+/* Global Elements */
+img {
+    width: 92px;
+    height: 92px;
+    border-radius: 100%;
+    aspect-ratio: 1/1;
+
+    object-fit: cover;
+}
+
+h1 {
+    font-size: clamp(1rem, 4vw, 2rem);
+}
+
+/* Start The card */
+.card {
+    text-align: center;
+    height: 612px;
+    background: var(--grey-800);
+    border-radius: 8px;
+    width: 380px;
+    padding: 35px;
+}
+
+address {
+    color: var(--green);
+    font-weight: 300;
+    margin-bottom: 2rem;
+}
+
+a.btn-link {
+    display: block;
+    height: 45px;
+    margin: 16px;
+    color: var(--white);
+    font-weight: 600;
+    background: var(--grey-700);
+    box-shadow: 0 0 0 1px var(--grey-900);
+    border-radius: 8px;
+    text-decoration: none;
+    padding: 10px;
+    transition: all 0.15s ease-in;
+}
+
+a.btn-link:hover {
+    background: var(--green);
+    color: var(--grey-900);
+}
