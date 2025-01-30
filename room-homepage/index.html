@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frontend Mentor | Room homepage</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <header class="container">
+    <nav class="navbar">
+      <a href="#" class="logo">
+        <img src="./images/logo.svg" alt="logo">
+      </a>
+      <div class="nav-toggle">
+        <div class="open">
+          <img src="./images/icon-hamburger.svg" alt="open">
+        </div>
+      </div>
+      <div class="nav-items">
+        <div class="close">
+          <img src="./images/icon-close.svg" alt="close">
+        </div>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#" class="nav-link">home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">shop</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">about</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="hero">
+      <div class="slide">
+        <div class="slide-wrapper">
+          <div class="slide-item active">
+            <div class="slide-image">
+              <picture>
+                <source media="(max-width:600px)" srcset="./images/mobile-image-hero-1.jpg" width="100%">
+                <img src="./images/desktop-image-hero-1.jpg" alt="hero">
+              </picture>
+            </div>
+            <div class="slide-text">
+              <h1>Discover innovative ways to decorate</h1>
+              <p>We provide unmatched quality, comfort, and style for property owners across the country.
+                Our experts combine form and function in bringing your vision to life. Create a room in your
+                own style with our collection and make your property a reflection of you and what you love.</p>
+              <a href="#">Shop now
+                <img src="./images/icon-arrow.svg" alt="">
+              </a>
+            </div>
+          </div>
+          <div class="slide-item hidden">
+            <div class="slide-image">
+              <picture>
+                <source media="(max-width:600px)" srcset="./images/mobile-image-hero-2.jpg" width="100%">
+                <img src="./images/desktop-image-hero-2.jpg" alt="hero">
+              </picture>
+            </div>
+
+            <div class="slide-text">
+              <h1>We are available all across the globe</h1>
+              <p>With stores all over the world, it's easy for you to find furniture for your home or place of business.
+                Locally, we’re in most major cities throughout the country. Find the branch nearest you using our
+                store locator. Any questions? Don't hesitate to contact us today.</p>
+              <a href="#">Shop now
+                <img src="./images/icon-arrow.svg" alt="">
+              </a>
+            </div>
+          </div>
+          <div class="slide-item hidden">
+            <div class="slide-image">
+              <picture>
+                <source media="(max-width:600px)" srcset="./images/mobile-image-hero-3.jpg" width="100%">
+                <img src="./images/desktop-image-hero-3.jpg" alt="hero">
+              </picture>
+            </div>
+            <div class="slide-text">
+              <h1>Manufactured with the best materials</h1>
+              <p> Our modern furniture store provide a high level of quality. Our company has invested in advanced
+                technology
+                to ensure that every product is made as perfect and as consistent as possible. With three decades of
+                experience in this industry, we understand what customers want for their home and office.</p>
+              <a href="#">Shop now
+                <img src="./images/icon-arrow.svg" alt="">
+              </a>
+            </div>
+          </div>
+          <div class="slide-toggle">
+            <div class="toggle-icon left" aria-label="Previous slide">
+              <img src="./images/icon-angle-left.svg" alt="Previous">
+            </div>
+            <div class="toggle-icon right" aria-label="Next slide">
+              <img src="./images/icon-angle-right.svg" alt="Next">
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </header>
+  <main class="container">
+    <div class="about">
+      <div>
+        <img alt="" src="./images/image-about-dark.jpg" width="100%">
+      </div>
+      <div class="about-text">
+        <h2> About our furniture</h2>
+        <p> Our multifunctional collection blends design and function to suit your individual taste.
+          Make each room unique, or pick a cohesive theme that best express your interests and what
+          inspires you. Find the furniture pieces you need, from traditional to contemporary styles
+          or anything in between. Product specialists are available to help you create your dream space.</p>
+      </div>
+      <div>
+        <img alt="" src="./images/image-about-light.jpg" width="100%">
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+
+    // toggle navbar
+    const navbar = document.querySelector('.nav-items');
+    const navbarOpen = document.querySelector('.open');
+    const navbarClose = document.querySelector('.close');
+
+    navbarClose.addEventListener('click', function () {
+      navbar.classList.toggle('open');
+    });
+
+    navbarOpen.addEventListener('click', function () {
+      navbar.classList.toggle('open');
+    });
+
+    // toggle slide
+    const slideItems = document.querySelectorAll('.slide-item');
+    const slideLeft = document.querySelector('.left');
+    const slideRight = document.querySelector('.right');
+
+    let currentIndex = 0;
+
+    function updateSlides(newIndex) {
+      // Remove active class from the current slide
+      slideItems[currentIndex].classList.remove('active');
+      slideItems[currentIndex].classList.add('hidden');
+
+      // Add active class to the new slide
+      currentIndex = newIndex;
+      slideItems[currentIndex].classList.remove('hidden');
+      slideItems[currentIndex].classList.add('active');
+    }
+
+    // Handle left navigation
+    function goLeft() {
+      const newIndex = (currentIndex - 1 + slideItems.length) % slideItems.length;
+      updateSlides(newIndex);
+    }
+
+    // Handle right navigation
+    function goRight() {
+      const newIndex = (currentIndex + 1) % slideItems.length;
+      updateSlides(newIndex);
+    }
+
+    // Click event listeners
+    slideLeft.addEventListener('click', goLeft);
+    slideRight.addEventListener('click', goRight);
+
+    // Keyboard arrow key navigation
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'ArrowLeft') {
+        goLeft();
+      } else if (event.key === 'ArrowRight') {
+        goRight();
+      }
+    });
+
+  </script>
+
+</body>
+
+</html>
